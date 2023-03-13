@@ -1,18 +1,29 @@
 const mongoose = require("mongoose");
 const Class = require("./Class.model");
 const Student = require("./Student.model");
-const marksSchema = new mongoose.Schema({
-  class: {
-    type: [Class],
-  },
-  student: {
-    type: [Student],
-  },
-  marks:{
-    type: Number
-  }
 
+const marksSchema = new mongoose.Schema({
+  examName:{
+    type:String,
+    required: true
+  },
+  mark: {
+    type: Number,
+    required: true
+  },
+  student:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Student",
+    required: true
+  },
+  class:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Class",
+    required: true
+  }
 });
 
-const Marks = mongoose.model("Marks", "markSchema");
+//feedback.bd@samsung.com
+
+const Marks = mongoose.model("Marks", marksSchema);
 module.exports = Marks;

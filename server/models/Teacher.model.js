@@ -10,5 +10,5 @@ const teacherSchema = new mongoose.Schema({
     },
   ],
 });
-const Teacher = User.discriminator("Teachers", "teacherSchema");
+const Teacher = mongoose.model("teacher", teacherSchema);
 module.exports = Teacher;

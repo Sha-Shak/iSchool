@@ -1,14 +1,15 @@
-const mongoose = require("mongoose")
-const User = require('./User.model')
-const Class = require('./Class.model')
-const studentMongoose = new mongoose.Schema({
-  classes:{
-    type: [Class]
-  },
-  marks:{
-    type: [Marks]
-  }
-})
+const mongoose = require("mongoose");
 
-const Student = User.discriminator('Students', studentSchema)
-module.exports = Student
+const Class = require("./Class.model");
+const Marks = require("./Marks.model");
+const User = require("./User.model");
+
+const studentSchema = new mongoose.Schema({
+  classes:[ {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Class",
+  }],
+});
+
+const Student = User.discriminator("Student", studentSchema);
+module.exports = Student;
