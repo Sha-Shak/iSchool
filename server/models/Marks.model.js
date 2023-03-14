@@ -3,24 +3,28 @@ const Class = require("./Class.model");
 const Student = require("./Student.model");
 
 const marksSchema = new mongoose.Schema({
-  examName:{
-    type:String,
-    required: true
+  examName: {
+    type: String,
+    required: true,
   },
   mark: {
     type: Number,
-    required: true
+    required: true,
   },
-  student:{
+  totalMark: {
+    type: Number,
+    required: true,
+  },
+  student: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Student",
-    required: true
+    required: true,
   },
-  class:{
+  class: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Class",
-    required: true
-  }
+    required: true,
+  },
 });
 
 //feedback.bd@samsung.com

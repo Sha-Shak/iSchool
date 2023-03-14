@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
   userType: {
     type: String,
     enum: ['admin', 'teacher', 'student']
+  },
+  password:{
+    type: String,
+    required: true
   }
 })
 

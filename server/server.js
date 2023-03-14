@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
-const studentsRouter = require("./router/student.router")
+const studentsRouter = require("./router/student.router");
 const classRouter = require("./router/class.router");
 dotenv.config({ path: path.join(__dirname, "./environments", ".env") });
 const corsOption = {};
@@ -13,9 +13,8 @@ app.use(cors());
 app.use(express.json());
 const endpoint = process.env.PORT || 3001;
 
-
-app.use('/student', studentsRouter)
-app.use('/class', classRouter)
+app.use("/student", studentsRouter);
+app.use("/class", classRouter);
 
 // mongoose.connect(process.env.URI, { useUnifiedTopology: true });
 // const db = mongoose.connection;
@@ -26,7 +25,7 @@ app.use('/class', classRouter)
 //   console.log("DB connected successfully");
 // });
 mongoose
-  .connect(process.env.URI, {
+  .connect(process.env.LOCALDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

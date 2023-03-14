@@ -23,6 +23,7 @@
 const mongoose = require("mongoose");
 const Student = require("./Student.model");
 const Marks = require("./Marks.model");
+const Teacher = require("./Teacher.model");
 
 const classSchema = new mongoose.Schema({
   subject: {
@@ -30,11 +31,19 @@ const classSchema = new mongoose.Schema({
     required: true,
     enum: ["Bengali", "English", "Spanish"],
   },
-  students:[ {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Student",
-    unique: true,
-  }]
+  students: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Student",
+      unique: true,
+    },
+  ],
+  teachers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Teacher",
+    },
+  ],
 });
 
 const Class = mongoose.model("Class", classSchema);
