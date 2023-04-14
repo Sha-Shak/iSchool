@@ -1,17 +1,19 @@
 const mongoose = require("mongoose");
 const Class = require("./Class.model");
 const Student = require("./Student.model");
+const subjectSchema = require("./Subject.model")
 
 const marksSchema = new mongoose.Schema({
   examName: {
     type: String,
+    enum:["quiz", "mid", "final"]
     required: true,
   },
-  mark: {
+  marks: {
     type: Number,
     required: true,
   },
-  totalMark: {
+  totalMarks: {
     type: Number,
     required: true,
   },
@@ -27,7 +29,7 @@ const marksSchema = new mongoose.Schema({
   },
 });
 
-//feedback.bd@samsung.com
 
-const Marks = mongoose.model("Marks", marksSchema);
-module.exports = Marks;
+
+// const Marks = mongoose.model("Marks", marksSchema);
+module.exports = marksSchema;

@@ -7,23 +7,21 @@ const path = require("path");
 const mongoose = require("mongoose");
 const studentsRouter = require("./router/student.router");
 const classRouter = require("./router/class.router");
+const endpoint = process.env.PORT || 3001;
 dotenv.config({ path: path.join(__dirname, "./environments", ".env") });
 const corsOption = {};
-app.use(cors());
+const corsConfig = {
+  // origin:['http://localhost:3000']
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsConfig));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-const endpoint = process.env.PORT || 3001;
 
 app.use("/student", studentsRouter);
 app.use("/class", classRouter);
 
-// mongoose.connect(process.env.URI, { useUnifiedTopology: true });
-// const db = mongoose.connection;
-// db.on("error", (err) => {
-//   console.log(err);
-// });
-// db.once("open", () => {
-//   console.log("DB connected successfully");
-// });
+
 mongoose
   .connect(process.env.LOCALDB, {
     useNewUrlParser: true,
