@@ -52,4 +52,4 @@ const addSubject = async (req, res) => {
     res.status(500).send(e);
   }
 };
-module.exports = { getAllClass, addClass, addStudent };
+module.exports = { getAllClass, addClass, addStudent, addSubject };

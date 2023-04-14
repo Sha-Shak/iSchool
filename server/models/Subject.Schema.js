@@ -7,9 +7,9 @@ const subjectSchema = mongoose.Schema({
     required: true,
   },
   teacher: {
-    type: mongoose.Schema.Types.ObjectIdId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Teacher",
-    required: true
+    required: true,
   },
   marks: [marksSchema],
 });

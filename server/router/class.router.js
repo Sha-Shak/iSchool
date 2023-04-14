@@ -3,6 +3,7 @@ const {
   getAllClass,
   addClass,
   addStudent,
+  addSubject
 } = require("../controller/class.controller");
 const Class = require("../models/Class.model");
 
@@ -12,6 +13,7 @@ const Class = require("../models/Class.model");
 router.get("/", getAllClass);
 
 router.post("/create", addClass);
-router.patch("/:id/addToClass", addStudent);
+router.patch("/:id/addstudents", addStudent);
+router.patch("/:id/addsubject", addSubject);
 
 module.exports = router;

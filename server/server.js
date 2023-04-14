@@ -22,17 +22,17 @@ app.use("/student", studentsRouter);
 app.use("/class", classRouter);
 
 
-mongoose
-  .connect(process.env.LOCALDB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB", err);
-  });
+// mongoose
+//   .connect(process.env.LOCALDB, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("Connected to MongoDB");
+//   })
+//   .catch((err) => {
+//     console.error("Error connecting to MongoDB", err);
+//   });
 
 app.listen(endpoint, () => {
   console.log(`Server running at ${endpoint}`);

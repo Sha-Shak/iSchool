@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Class = require("./Class.model");
 const Student = require("./Student.model");
-const subjectSchema = require("./Subject.model")
+const subjectSchema = require("./Subject.Schema")
 
 const marksSchema = new mongoose.Schema({
   examName: {
     type: String,
-    enum:["quiz", "mid", "final"]
+    enum:["quiz", "mid", "final"],
     required: true,
   },
   marks: {
@@ -21,12 +21,7 @@ const marksSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Student",
     required: true,
-  },
-  class: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Class",
-    required: true,
-  },
+  }
 });
 
 

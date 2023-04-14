@@ -3,12 +3,7 @@ const Class = require("./Class.model");
 const User = require("./User.model");
 
 const teacherSchema = new mongoose.Schema({
-  classes: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Class",
-    },
-  ],
+  speciality: String
 });
 const Teacher = mongoose.model("teacher", teacherSchema);
 module.exports = Teacher;
