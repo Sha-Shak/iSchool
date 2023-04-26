@@ -6,7 +6,11 @@ const subjectSchema = require("./Subject.Schema");
 
 const classSchema = new mongoose.Schema({
   subjects: [subjectSchema],
-  classTeacher: { type: mongoose.Schema.Types.ObjectId, ref: "Teacher", required: true },
+  classTeacher: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Teacher",
+    required: true,
+  },
   students: [
     {
       type: mongoose.Schema.Types.ObjectId,
